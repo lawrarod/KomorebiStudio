@@ -65,12 +65,10 @@
         padding: .5em;
       }
     }
-
   </style>
 </head>
 
 <?php
-
 session_start();
 // echo $_SESSION['usuario'];
 
@@ -84,8 +82,6 @@ if (isset($_SESSION['usuario'])) {
 
   $registros = mysqli_query($conexion, "SELECT * FROM empleados WHERE 1");
   $filas = mysqli_fetch_all($registros, MYSQLI_ASSOC);
-
-
 ?>
 
 <body>
@@ -109,5 +105,4 @@ if (isset($_SESSION['usuario'])) {
   }
     ?>
 </body>
-
 </html>

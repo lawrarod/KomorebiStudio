@@ -73,6 +73,7 @@
         $consulta = mysqli_query($conexion, $update_values);
 
         if($consulta){
+          
           echo "Se ha actualizado correctamente.";
         }else{
           echo mysqli_error($conexion);
