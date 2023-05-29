@@ -50,7 +50,7 @@
       background-color: cornflowerblue;
     }
 
-    @media (max-width: 981px) {
+    @media (max-width: 988px) {
       #empleados {
         flex-flow: column;
         gap: 1em;
@@ -60,15 +60,20 @@
         display: flex;
         flex-flow: row;
       }
+
+      #nuevo-empleado {
+        padding: .5em;
+      }
     }
+
   </style>
 </head>
 
 <?php
 
 session_start();
-
 // echo $_SESSION['usuario'];
+
 if (isset($_SESSION['usuario'])) {
 
   include "conn.php";
@@ -79,7 +84,7 @@ if (isset($_SESSION['usuario'])) {
 
   $registros = mysqli_query($conexion, "SELECT * FROM empleados WHERE 1");
   $filas = mysqli_fetch_all($registros, MYSQLI_ASSOC);
-}
+
 
 ?>
 
@@ -101,6 +106,7 @@ if (isset($_SESSION['usuario'])) {
       </section>
     <?php
     }
+  }
     ?>
 </body>
 
