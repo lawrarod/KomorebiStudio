@@ -69,11 +69,10 @@
       if(isset($_POST['idProyectos'])){
         $update_values = "UPDATE proyectos set nombre = '".$_POST['nombre']."', localizacion ='".$_POST['localizacion']."', presupuesto = '".$_POST['presupuesto']."', fecha_inicio = '".$_POST['fecha-inicio']."', fecha_fin = '".$_POST['fecha-fin']."', Descripcion = '".$_POST['Descripcion']."' where idProyectos = '".$_POST['idProyectos']."' ";
 
-    
         $consulta = mysqli_query($conexion, $update_values);
 
         if($consulta){
-          
+
           echo "Se ha actualizado correctamente.";
         }else{
           echo mysqli_error($conexion);

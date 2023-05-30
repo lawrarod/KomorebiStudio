@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
 
         ID Empleado: <br><input type="text" name="idEmpleados" id="idEmpleados" value="<?php echo $fila['idEmpleados'] ?>" readonly><br><br>
 
-        Nombre: <br><input type="text" name="nombre" id="nombre" ><br><br>
+        Nombre: <br><input type="text" name="nombre" id="nombre" value="<?php echo $fila['nombre'] ?>" readonly><br><br>
 
         Apellidos: <br><input type="text" name="apellidos" id="apellidos"><br><br>
 
