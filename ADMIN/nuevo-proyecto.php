@@ -67,12 +67,17 @@ button:hover {
     include "conn.php";
 
       if(isset($_POST['idProyectos'])){
-        $insert_values = "INSERT INTO proyectos VALUES ('".$_POST['idProyectos']."', '".$_POST['nombre']."', '".$_POST['localizacion']."', '".$_POST['presupuesto']."', '".$_POST['fecha-inicio']."', '".$_POST['fecha-fin']."','".$_POST['Descripcion']."','".$_POST['URL_Imagenes']."' )";
+        $insert_values = "INSERT INTO proyectos VALUES ('".$_POST['idProyectos']."', '".$_POST['nombre']."', '".$_POST['localizacion']."', '".$_POST['presupuesto']."', '".$_POST['fecha-inicio']."', '".$_POST['fecha-fin']."','".$_POST['Descripcion']."','".$_FILES["fichero"]["name"]."' )";
 
     
         $consulta = mysqli_query($conexion, $insert_values);
 
         if($consulta){
+          $files = $_FILES["fichero"]["name"];
+          $url_temp = $_FILES["fichero"]["tmp_name"];
+          $url_insert = dirname(__FILE__) . "../MAQUETACION/Proyectos/img";
+          $url_target = str_replace('\\', '/', $url_insert). '/'. $files;
+
           echo "Se ha añadido correctamente.";
         }else{
           echo mysqli_error($conexion);
@@ -97,7 +102,7 @@ button:hover {
 
       Descripción: <br><textarea name="Descripcion" id="Descripcion" cols="40" rows="5"></textarea><br><br>
       
-      URL_Imagenes: <br><input type="text" name="URL_Imagenes" id="URL_Imagenes"><br><br>
+      URL_Imagenes: <br><input type="file" name="URL_Imagenes" id="URL_Imagenes"><br><br>
 
       <button type="submit">Enviar</button>
     </form>

@@ -24,7 +24,7 @@
      form {
       width: 60%;
       display: flex;
-      height: 650px;
+      height: 700px;
       flex-flow: column;
       border-radius: 2em;
       padding: 2em;
@@ -67,11 +67,21 @@
     include "conn.php";
 
       if(isset($_POST['idProyectos'])){
-        $update_values = "UPDATE proyectos set nombre = '".$_POST['nombre']."', localizacion ='".$_POST['localizacion']."', presupuesto = '".$_POST['presupuesto']."', fecha_inicio = '".$_POST['fecha-inicio']."', fecha_fin = '".$_POST['fecha-fin']."', Descripcion = '".$_POST['Descripcion']."' where idProyectos = '".$_POST['idProyectos']."' ";
+        $update_values = "UPDATE proyectos set nombre = '".$_POST['nombre']."', localizacion ='".$_POST['localizacion']."', presupuesto = '".$_POST['presupuesto']."', fecha_inicio = '".$_POST['fecha-inicio']."', fecha_fin = '".$_POST['fecha-fin']."', Descripcion = '".$_POST['Descripcion']."', URL_Imagenes ='".$_FILES["fichero"]["name"]."' where idProyectos = '".$_POST['idProyectos']."' ";
 
         $consulta = mysqli_query($conexion, $update_values);
 
         if($consulta){
+          $files = $_FILES["fichero"]["name"];
+          $url_temp = $_FILES["fichero"]["tmp_name"];
+          $url_insert = dirname("C:\\xampp\htdocs\KomorebiStudio-1\MAQUETACIÓN\Proyectos\img") . PHP_EOL ;
+         
+          $url_target = str_replace('\\', '/', $url_insert). '/'. $files;
+          // echo $url_target;
+          // echo $url_temp;
+          if(move_uploaded_file($url_temp, $url_target)){
+            echo "El archivo se ha cargado correctamente.";
+          }
 
           echo "Se ha actualizado correctamente.";
         }else{
@@ -102,6 +112,8 @@
           Fecha Fin: <br><input type="text" name="fecha-fin" id="fecha-fin" value="<?php echo $fila['fecha_fin']?>"><br><br>
 
           Descripción: <br><textarea name="Descripcion" id="Descripcion" cols="40" rows="5"><?php echo $fila['Descripcion'] ?></textarea><br><br>
+
+          URL: <br><input type="file" name="fichero" id="fichero">
 
           <button type="submit">Enviar</button>
         </form>
