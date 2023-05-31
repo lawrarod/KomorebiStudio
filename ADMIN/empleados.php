@@ -87,7 +87,7 @@ if (isset($_SESSION['usuario'])) {
 <body>
   <main>
     <section id="nuevo-empleado">Añadir Nuevo Empleado&nbsp;&nbsp;
-      <a href="#"><i class="bi bi-plus-circle"></i></a>
+      <a href="nuevo-empleado.php"><i class="bi bi-plus-circle"></i></a>
     </section>
     <?php
     foreach ($filas as $fila) {
