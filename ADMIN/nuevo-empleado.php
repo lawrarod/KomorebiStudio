@@ -13,7 +13,7 @@
     }
     main {
       display: flex;
-      flex-flow: column wrap;
+      flex-flow: column ;
       height: 100vh;
       justify-content: center;
       align-items: center;
@@ -25,7 +25,7 @@
     form {
       display: flex;
       flex-flow: column wrap;
-      gap: 1em;
+      gap: .2em;
       width: 60%;
       /* min-height: 400px; */
       padding: 2em;
@@ -42,8 +42,16 @@
     }
 
     input[type="submit"] {
-      width: 20%;
+      height: 30px;
     }
+
+    #btn {
+      display: flex;
+      padding: .3em;
+      justify-content: center;
+      align-items: flex-end;
+    }
+
   </style>
 </head>
 <?php
@@ -75,7 +83,7 @@ if(isset($_SESSION['usuario'])){
       Número: <input type="text" name="numero"><br><br>
       Puesto: <input type="text" name="puesto"><br><br>
       Prácticas: <input type="text" name="practicas">
-      <div id="btn">
+      <div id="btn"><br><br>
       <input type="submit" value="Enviar">
       </div>
     </form>
