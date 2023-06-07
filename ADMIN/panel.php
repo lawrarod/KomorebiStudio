@@ -94,7 +94,7 @@ if (isset($_SESSION['usuario'])) {
       ?>
 
         <div id="proyectos">
-          <?php echo $fila['nombre'] ?>&nbsp;&nbsp;
+          <?php echo utf8_encode($fila['nombre']) ?>&nbsp;&nbsp;
 
           <a href="./panel.php?id=<?php echo $fila['idProyectos'] ?>"><i class="bi bi-trash"></i></a>&nbsp;
 

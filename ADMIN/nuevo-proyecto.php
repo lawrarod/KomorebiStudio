@@ -26,7 +26,7 @@ form {
   overflow-x: hidden;
   width: 60%;
   display: flex;
-  height: 650px;
+  /* height: 650px; */
   flex-flow: column;
   border-radius: 2em;
   padding: 2em;
@@ -63,7 +63,7 @@ button:hover {
   session_start();
 
   if (isset($_SESSION['usuario'])) {
-
+    ini_set('display_errors', 1);
     include "conn.php";
 
       if(isset($_POST['idProyectos'])){
@@ -75,9 +75,13 @@ button:hover {
         if($consulta){
           $files = $_FILES["fichero"]["name"];
           $url_temp = $_FILES["fichero"]["tmp_name"];
-          $url_insert = dirname(__FILE__) . "../MAQUETACION/Proyectos/img";
+          // $url_insert = dirname(__FILE__) . "../MAQUETACION/Proyectos/img";
+          $url_insert = dirname(__DIR__)."\MAQUETACION\Proyectos\img";
           $url_target = str_replace('\\', '/', $url_insert). '/'. $files;
-
+          if(move_uploaded_file($url_temp, $url_target)){
+            echo "El archivo se ha cargado correctamente.";
+          }
+          
           echo "Se ha añadido correctamente.";
         }else{
           echo mysqli_error($conexion);
@@ -102,7 +106,7 @@ button:hover {
 
       Descripción: <br><textarea name="Descripcion" id="Descripcion" cols="40" rows="5"></textarea><br><br>
       
-      URL_Imagenes: <br><input type="file" name="URL_Imagenes" id="URL_Imagenes"><br><br>
+      URL_Imagenes: <br><input type="file" name="fichero" id="fichero"><br><br>
 
       <button type="submit">Enviar</button>
     </form>

@@ -93,7 +93,7 @@ if (isset($_SESSION['usuario'])) {
     foreach ($filas as $fila) {
     ?>
       <section id="empleados">
-        <?php echo $fila['nombre'] . " " . $fila['apellidos']; ?>&nbsp;
+        <?php echo utf8_encode($fila['nombre'] . " " . $fila['apellidos']); ?>&nbsp;
         <div id="iconos">
           <a href="./empleados.php?id=<?php echo $fila['idEmpleados'] ?>"><i class="bi bi-trash"></i></a>&nbsp;
           <a href="actualizar-empleado.php?id=<?php echo $fila['idEmpleados']?>"><i class="bi bi-pen"></i></a>&nbsp;

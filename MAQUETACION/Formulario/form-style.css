@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body{
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(./background-form.jpg);
+    background-position: center; 
+    background-size: 1500px 1210px;
+    background-repeat: no-repeat;
+
+}
+
+/* LOGO */
+#caja-logo{
+    margin-top: 1.4em;
+    margin-left: 4.2em;
+    width: 15%;
+    font-size: x-large;
+    color: white;
+    cursor: pointer;
+}
+
+#caja-logo a{
+    text-decoration: none;
+    color: white;
+}
+
+
+/* FORMULARIO */
+form{
+    margin: 0 auto;
+    margin-top: 3.5%;
+    width: 50%;
+}
+
+fieldset{
+    /* height: inherit; */
+    padding: 2em;
+    text-align: center;
+    border-radius: 1em;
+    box-shadow: 5px 2px 5px rgb(95, 110, 128);
+    background-color: rgba(255, 253, 253, 0.144);  
+    border: none;
+}
+
+h2{
+    margin: 0 auto;
+    padding: .5em;
+    display: block;
+    width: fit-content;
+    color: white;
+}
+
+
+/* INPUT TEXT */
+#div-texts {
+    margin-top: 3.2%;
+}
+
+.textbox-style{
+    padding: 1.5em;
+    width: 90%;
+    border: none;
+    outline: none;
+    border-radius: .5em;
+    transition: all;
+}
+
+.textbox-style:hover{
+    /* box-shadow: .5px 1px 6px #026e64; */
+    /* box-shadow: .5px 1px 8px rgb(218, 171, 109); */
+    box-shadow: 1.5px 2px 6px inset #333;
+    transition-duration: 200ms;
+    border-radius: none;
+}
+
+/* BUTTON */
+button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    /* border: 2px solid #009688; */
+    /* border-color: rgb(218, 171, 109); */
+    border-color: rgba(95, 110, 128, 0.445);
+    box-shadow: 1.5px 2px 6px inset #333;
+    background: transparent;
+    color: white;
+    cursor: pointer ;
+    position: relative;
+    overflow: hidden;
+}
+
+span{
+    background-color: rgb(218, 171, 109);
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+button:hover span{
+    width: 100%;
+}
+
+button:hover{
+    border: none;
+}

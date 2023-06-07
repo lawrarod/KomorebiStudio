@@ -74,7 +74,7 @@
         if($consulta){
           $files = $_FILES["fichero"]["name"];
           $url_temp = $_FILES["fichero"]["tmp_name"];          
-          $url_insert = dirname(__DIR__)."\MAQUETACIÓN\Proyectos\img";
+          $url_insert = dirname(__DIR__)."\MAQUETACION\Proyectos\img";
          
           $url_target = str_replace('\\', '/', $url_insert). '/'. $files;
           // echo $url_target;
