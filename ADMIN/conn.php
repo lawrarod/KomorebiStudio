@@ -14,3 +14,5 @@ if ($conexion == FALSE) {
 //   echo mysqli_connect_error();
 //   exit();
 //}
+
+?>

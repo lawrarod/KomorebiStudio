@@ -26,11 +26,12 @@ form {
   overflow-x: hidden;
   width: 60%;
   display: flex;
-  /* height: 650px; */
+  height: 550px;
   flex-flow: column;
   border-radius: 2em;
   padding: 2em;
   box-shadow: 2px 3px 7px #444;
+  scroll-behavior: smooth;
 } 
 
 input[type="text"], textarea{
@@ -38,6 +39,16 @@ input[type="text"], textarea{
   border-color: #eee;
   padding: .5em;
   outline: none;
+}
+
+textarea {
+  resize: both;
+}
+
+#url {
+  display: flex;
+  padding: 1em;
+  padding-left: 0;
 }
 
 input[type="text"]:focus, textarea:focus {
@@ -87,7 +98,6 @@ button:hover {
           echo mysqli_error($conexion);
         }
       }
-
     ?>
   <main>
     <form method="POST" enctype="multipart/form-data">
@@ -106,7 +116,9 @@ button:hover {
 
       Descripción: <br><textarea name="Descripcion" id="Descripcion" cols="40" rows="5"></textarea><br><br>
       
-      URL_Imagenes: <br><input type="file" name="fichero" id="fichero"><br><br>
+      <div id="url">
+      URL_Imagenes:&nbsp;<input type="file" name="fichero" id="fichero">
+      </div><br><br>
 
       <button type="submit">Enviar</button>
     </form>
