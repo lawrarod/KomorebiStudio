@@ -60,9 +60,9 @@ foreach ($filas as $fila) {
 
       ID Empleado: <input type="text" name="id" id="id" value="<?php echo $fila['idEmpleados'] ?>" readonly><br>
 
-      Nombre: <input type="text" name="nombre" id="nombre" value="<?php echo $fila['nombre'] ?>" readonly><br>
+      Nombre: <input type="text" name="nombre" id="nombre" value="<?php echo utf8_encode( $fila['nombre']) ?>"  readonly><br>
 
-      Apellidos: <input type="text" name="apellidos" id="apellidos" value="<?php echo $fila['apellidos'] ?>" readonly><br>
+      Apellidos: <input type="text" name="apellidos" id="apellidos" value="<?php echo utf8_encode($fila['apellidos']) ?>" readonly><br>
 
       Email: <input type="text" name="email" id="email" value="<?php echo $fila['email'] ?>" readonly><br>
 

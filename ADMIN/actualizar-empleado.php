@@ -6,6 +6,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ACTUALIZAR EMPLEADO</title>
+
+  <style>
+    body {
+      background-color: #f5f6f7;
+    }
+
+    main {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+    }
+
+    fieldset {
+      /* overflow: scroll; */
+      /* overflow-x: hidden; */
+      width: 60%;
+      display: flex;
+      height: 550px;
+      flex-flow: column;
+      border-radius: 2em;
+      padding: 2em;
+      box-shadow: 2px 3px 7px #444;
+      scroll-behavior: smooth;
+    }
+
+    legend {
+      text-align: center;
+    }
+  </style>
 </head>
 <?php
 
@@ -30,35 +61,35 @@ if (isset($_POST['idEmpleados'])) {
 if (isset($_GET['id'])) {
   $registros = mysqli_query($conexion, "SELECT * FROM empleados WHERE idEmpleados=" . $_GET['id']);
   $filas = mysqli_fetch_all($registros, MYSQLI_ASSOC);
-  foreach($filas as $fila){
+  foreach ($filas as $fila) {
 ?>
 
-  <body>
-    <form method="POST" enctype="multipart/form-data">
-      <fieldset>
-        <legend>ACTUALIZAR EMPLEADO</legend>
+    <body>
+      <form method="POST" enctype="multipart/form-data">
+        <fieldset>
+          <legend>ACTUALIZAR EMPLEADO</legend>
 
-        ID Empleado: <br><input type="text" name="idEmpleados" id="idEmpleados" value="<?php echo $fila['idEmpleados'] ?>" readonly><br><br>
+          ID Empleado: <br><input type="text" name="idEmpleados" id="idEmpleados" value="<?php echo $fila['idEmpleados'] ?>" readonly><br><br>
 
-        Nombre: <br><input type="text" name="nombre" id="nombre" value="<?php echo $fila['nombre'] ?>"><br><br>
+          Nombre: <br><input type="text" name="nombre" id="nombre" value="<?php echo $fila['nombre'] ?>"><br><br>
 
-        Apellidos: <br><input type="text" name="apellidos" id="apellidos"><br><br>
+          Apellidos: <br><input type="text" name="apellidos" id="apellidos"><br><br>
 
-        Email: <br><input type="text" name="email" id="email"><br><br>
+          Email: <br><input type="text" name="email" id="email"><br><br>
 
-        Nº Móvil: <br><input type="text" name="numero" id="movil"><br><br>
+          Nº Móvil: <br><input type="text" name="numero" id="movil"><br><br>
 
-        Puesto: <br><input type="text" name="puesto" id="puesto"><br><br>
+          Puesto: <br><input type="text" name="puesto" id="puesto"><br><br>
 
-        Prácticas: <br><input type="text" name="practicas" id="practicas"><br><br>
+          Prácticas: <br><input type="text" name="practicas" id="practicas"><br><br>
 
-        <button type="submit">Enviar</button>
-      </fieldset>
-    </form>
+          <button type="submit">Enviar</button>
+        </fieldset>
+      </form>
   <?php
   }
 }
   ?>
-  </body>
+    </body>
 
 </html>
